@@ -1036,7 +1036,7 @@ html {
     padding: 5px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 70px; /* Altura mínima para consistência */
+    min-height: 30px; /* Altura mínima para consistência */
 }
 
 /* Logo com tamanho adequado e responsivo */
