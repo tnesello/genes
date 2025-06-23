@@ -633,6 +633,386 @@ body {
     }
 }
 
+/* ========== CORREÇÕES PARA PROBLEMAS DE FORMATAÇÃO ========== */
+
+/* Correção 1: Seção de Contato - Layout Responsivo */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: start; /* Alinha itens no topo */
+}
+
+/* Correção 2: Formulário de Contato - Melhor Estrutura */
+.contact-form {
+    background: var(--genes-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 100%;
+}
+
+.contact-form h3 {
+    margin-bottom: 25px;
+    color: var(--genes-dark);
+    font-size: 1.3rem;
+}
+
+/* Correção 3: Campos do Formulário - Espaçamento Correto */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--genes-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* Correção 4: Botão do Formulário */
+.contact-form button {
+    background: var(--genes-orange);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.contact-form button:hover {
+    background: #e55a2b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Correção 5: Informações de Contato - Melhor Organização */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--genes-orange);
+}
+
+.contact-item h3 {
+    color: var(--genes-orange);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Correção 6: Mapa - Responsividade e Estrutura */
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: start;
+}
+
+.map {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    background: #f0f0f0;
+    min-height: 350px;
+    position: relative;
+}
+
+.map iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    display: block;
+}
+
+/* Correção 7: Informações de Localização */
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.address,
+.references {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--genes-green);
+}
+
+.address h3,
+.references h3 {
+    color: var(--genes-green);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.references ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.references li {
+    padding: 8px 0;
+    color: #666;
+    position: relative;
+    padding-left: 25px;
+}
+
+.references li:before {
+    content: "✓";
+    color: var(--genes-green);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+/* Correção 8: Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--genes-green);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border: 2px solid var(--genes-green);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--genes-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ========== RESPONSIVIDADE MOBILE ========== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .contact-content,
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .map {
+        order: -1; /* Mapa aparece primeiro no mobile */
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 0;
+    }
+    
+    .location {
+        padding: 60px 0;
+    }
+    
+    .contact-content,
+    .location-content {
+        gap: 30px;
+    }
+    
+    .contact-form,
+    .contact-item,
+    .address,
+    .references {
+        padding: 20px;
+    }
+    
+    .map {
+        min-height: 250px;
+    }
+    
+    .map iframe {
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 480px) {
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+    
+    .contact-form button {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .social-links {
+        flex-direction: column;
+    }
+    
+    .social-links a {
+        text-align: center;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* ========== CORREÇÕES ESPECÍFICAS PARA PROBLEMAS COMUNS ========== */
+
+/* Correção 9: Evitar Overflow Horizontal */
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow-x: hidden;
+}
+
+/* Correção 10: Melhorar Carregamento do Mapa */
+.map-placeholder {
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    border-radius: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Correção 11: Formulário - Validação Visual */
+.contact-form input:invalid,
+.contact-form select:invalid,
+.contact-form textarea:invalid {
+    border-color: #ff6b6b;
+}
+
+.contact-form input:valid,
+.contact-form select:valid,
+.contact-form textarea:valid {
+    border-color: var(--genes-green);
+}
+
+/* Correção 12: Acessibilidade */
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--genes-dark);
+    font-weight: 500;
+}
+
+/* Correção 13: Loading States */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--genes-orange);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== MELHORIAS ADICIONAIS ========== */
+
+/* Melhoria 1: Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhoria 2: Transições Suaves */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Melhoria 3: Focus Visível */
+*:focus {
+    outline: 2px solid var(--genes-orange);
+    outline-offset: 2px;
+}
+
+/* Melhoria 4: Hover States Consistentes */
+.contact-item:hover,
+.address:hover,
+.references:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+
+
 /* ========== CORREÇÃO ESPECÍFICA PARA CABEÇALHO ========== */
 
 /* Reset do header para corrigir problemas */
