@@ -63,6 +63,30 @@ body {
     color: var(--genes-dark);
 }
 
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--genes-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--genes-orange);
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+}
+</style>
+
 /* ========== SEÇÃO PRINCIPAL (HERO) ========== */
 .hero {
     margin-top: 80px;
