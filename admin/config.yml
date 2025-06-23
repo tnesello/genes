@@ -1,0 +1,89 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "salas"
+    label: "Salas Comerciais"
+    folder: "src/data/salas"
+    create: true
+    slug: "sala-{{numero}}"
+    fields:
+      - { label: "Número da Sala", name: "numero", widget: "string" }
+      - { label: "Área (m²)", name: "area", widget: "number", default: 17.1 }
+      - { label: "Preço (R$)", name: "preco", widget: "number" }
+      - { 
+          label: "Status", 
+          name: "status", 
+          widget: "select", 
+          options: ["disponivel", "ocupada", "manutencao"],
+          default: "disponivel"
+        }
+      - { label: "Descrição", name: "descricao", widget: "text" }
+      - { 
+          label: "Características", 
+          name: "caracteristicas", 
+          widget: "list",
+          default: ["Wi-Fi", "Ar-condicionado", "Mobiliário", "Alexa"]
+        }
+      - { label: "Foto da Sala", name: "imagem", widget: "image", required: false }
+      - { label: "Destaque", name: "destaque", widget: "boolean", default: false }
+
+  - name: "configuracoes"
+    label: "Configurações do Site"
+    files:
+      - label: "Informações Gerais"
+        name: "geral"
+        file: "src/data/config/geral.md"
+        fields:
+          - { label: "Nome da Empresa", name: "nome_empresa", widget: "string" }
+          - { label: "Slogan", name: "slogan", widget: "text" }
+          - { label: "Descrição", name: "descricao", widget: "text" }
+          - { label: "Total de Salas", name: "total_salas", widget: "number" }
+          
+      - label: "Contatos"
+        name: "contatos"
+        file: "src/data/config/contatos.md"
+        fields:
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Endereço Completo", name: "endereco", widget: "text" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Facebook", name: "facebook", widget: "string" }
+          
+      - label: "Horário de Funcionamento"
+        name: "horario"
+        file: "src/data/config/horario.md"
+        fields:
+          - { label: "Segunda a Sexta", name: "seg_sex", widget: "string", default: "8h às 18h" }
+          - { label: "Sábado", name: "sabado", widget: "string", default: "8h às 12h" }
+          - { label: "Domingo", name: "domingo", widget: "string", default: "Fechado" }
+
+  - name: "sobre"
+    label: "Sobre a Empresa"
+    files:
+      - label: "Conteúdo da Seção Sobre"
+        name: "sobre"
+        file: "src/data/sobre.md"
+        fields:
+          - { label: "Título Principal", name: "titulo", widget: "string" }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+          - { label: "Descrição Principal", name: "descricao", widget: "text" }
+          - { label: "O que somos", name: "o_que_somos", widget: "text" }
+          - { label: "No que acreditamos", name: "acreditamos", widget: "text" }
+          - { label: "O que oferecemos", name: "oferecemos", widget: "text" }
+
+  - name: "imagens"
+    label: "Imagens do Site"
+    files:
+      - label: "Imagens Principais"
+        name: "principais"
+        file: "src/data/imagens.md"
+        fields:
+          - { label: "Logo da Empresa", name: "logo", widget: "image" }
+          - { label: "Imagem Hero", name: "hero", widget: "image", required: false }
+          - { label: "Imagem Sobre", name: "sobre", widget: "image", required: false }
+
