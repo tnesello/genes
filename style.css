@@ -1010,3 +1010,318 @@ html {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
+/* ========== CORREÇÃO ESPECÍFICA PARA CABEÇALHO ========== */
+
+/* Reset do header para corrigir problemas */
+.header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+}
+
+/* Container do navegador corrigido */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 70px; /* Altura mínima para consistência */
+}
+
+/* Logo com tamanho adequado e responsivo */
+.logo-img {
+    height: 60px; /* Tamanho equilibrado */
+    width: auto;
+    max-width: 200px; /* Limite máximo */
+    object-fit: contain; /* Mantém proporção */
+    transition: all 0.3s ease;
+}
+
+/* Informações de contato reorganizadas */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 60px;
+}
+
+/* Itens de contato melhorados */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--genes-dark);
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+/* Ícones dos contatos */
+.contact-item::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Ícone de telefone */
+.contact-item.phone::before {
+    content: "📞";
+    font-size: 14px;
+}
+
+/* Ícone de email */
+.contact-item.email::before {
+    content: "✉️";
+    font-size: 14px;
+}
+
+/* Links de contato */
+.contact-item a {
+    color: var(--genes-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--genes-orange);
+}
+
+/* ========== RESPONSIVIDADE DO HEADER ========== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .nav {
+        padding: 12px 15px;
+    }
+    
+    .logo-img {
+        height: 50px;
+    }
+    
+    .contact-info {
+        gap: 6px;
+    }
+    
+    .contact-item {
+        font-size: 13px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .logo-img {
+        height: 45px;
+    }
+    
+    .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .contact-item {
+        font-size: 12px;
+        justify-content: center;
+    }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 480px) {
+    .nav {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .contact-item {
+        font-size: 11px;
+    }
+}
+
+/* ========== AJUSTE DO CONTEÚDO PRINCIPAL ========== */
+
+/* Ajustar margem do hero para compensar header */
+.hero {
+    margin-top: 90px; /* Aumentado para acomodar header maior */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 120px; /* Mais espaço no mobile devido ao header em coluna */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-top: 110px;
+    }
+}
+
+/* ========== MELHORIAS VISUAIS ========== */
+
+/* Hover effect na logo */
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Sombra suave no header */
+.header {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Transições suaves */
+.nav,
+.contact-info,
+.contact-item {
+    transition: all 0.3s ease;
+}
+
+/* ========== VERSÃO ALTERNATIVA - HEADER COMPACTO ========== */
+
+/* Se preferir um header mais compacto, use estas regras: */
+.header.compact {
+    padding: 0;
+}
+
+.header.compact .nav {
+    padding: 10px 20px;
+    min-height: 60px;
+}
+
+.header.compact .logo-img {
+    height: 45px;
+}
+
+.header.compact .contact-info {
+    gap: 5px;
+}
+
+.header.compact .contact-item {
+    font-size: 13px;
+}
+
+/* ========== VERSÃO ALTERNATIVA - HEADER HORIZONTAL ========== */
+
+/* Para manter tudo em uma linha no mobile: */
+@media (max-width: 768px) {
+    .nav.horizontal {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav.horizontal .contact-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+    }
+    
+    .nav.horizontal .contact-item {
+        font-size: 10px;
+    }
+    
+    .nav.horizontal .logo-img {
+        height: 35px;
+    }
+}
+
+/* ========== CORREÇÃO PARA PROBLEMAS ESPECÍFICOS ========== */
+
+/* Se a logo estiver cortada */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Se as informações estiverem sobrepostas */
+.contact-info {
+    flex-shrink: 0;
+    min-width: 200px;
+}
+
+/* Se o header estiver muito alto */
+.header.slim .nav {
+    padding: 8px 20px;
+    min-height: 50px;
+}
+
+.header.slim .logo-img {
+    height: 35px;
+}
+
+/* Se houver problemas de z-index */
+.header {
+    z-index: 9999 !important;
+}
+
+/* ========== CLASSES UTILITÁRIAS ========== */
+
+/* Para esconder elementos no mobile se necessário */
+.hide-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+/* Para mostrar apenas no mobile */
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block;
+    }
+}
+
+/* Para texto menor no mobile */
+.text-responsive {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .text-responsive {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-responsive {
+        font-size: 11px;
+    }
+}
