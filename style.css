@@ -50,19 +50,6 @@ body {
     width: auto;
 }
 
-.contact-info {
-    display: flex;
-    gap: 30px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--genes-dark);
-}
-
 /* ========== SEÇÃO PRINCIPAL (HERO) ========== */
 .hero {
     margin-top: 80px;
