@@ -1055,7 +1055,7 @@ html {
     gap: 8px;
     align-items: flex-end;
     justify-content: center;
-    min-height: 60px;
+    min-height: 30px;
 }
 
 /* Itens de contato melhorados */
