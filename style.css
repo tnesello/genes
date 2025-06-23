@@ -1035,17 +1035,6 @@ html {
     transition: all 0.3s ease;
 }
 
-/* Links de contato */
-.contact-item a {
-    color: var(--genes-dark);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: var(--genes-orange);
-}
-
 /* ========== RESPONSIVIDADE DO HEADER ========== */
 
 /* Tablets */
