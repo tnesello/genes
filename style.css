@@ -1035,48 +1035,6 @@ html {
     transition: all 0.3s ease;
 }
 
-/* Informações de contato reorganizadas */
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-end;
-    justify-content: center;
-    min-height: 30px;
-}
-
-/* Itens de contato melhorados */
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--genes-dark);
-    white-space: nowrap; /* Evita quebra de linha */
-}
-
-/* Ícones dos contatos */
-.contact-item::before {
-    content: "";
-    width: 16px;
-    height: 16px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-}
-
-/* Ícone de telefone */
-.contact-item.phone::before {
-    content: "📞";
-    font-size: 14px;
-}
-
-/* Ícone de email */
-.contact-item.email::before {
-    content: "✉️";
-    font-size: 14px;
-}
-
 /* Links de contato */
 .contact-item a {
     color: var(--genes-dark);
