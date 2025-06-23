@@ -1028,12 +1028,13 @@ html {
 
 /* Logo com tamanho adequado e responsivo */
 .logo-img {
-    height: 60px; /* Tamanho equilibrado */
+    height: 100px; /* Tamanho equilibrado */
     width: auto;
     max-width: 200px; /* Limite máximo */
     object-fit: contain; /* Mantém proporção */
     transition: all 0.3s ease;
 }
+
 
 /* ========== RESPONSIVIDADE DO HEADER ========== */
 
