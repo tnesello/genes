@@ -638,8 +638,8 @@ body {
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-top: 50px;
+    gap: 8px;
+    margin-top: 8px;
     align-items: start; /* Alinha itens no topo */
 }
 
@@ -707,14 +707,14 @@ body {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 8px;
 }
 
 .contact-item {
     background: white;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
     border-left: 4px solid var(--genes-orange);
 }
 
@@ -724,7 +724,7 @@ body {
     font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .contact-item p {
