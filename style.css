@@ -27,80 +27,284 @@ body {
     --genes-light: #F8F8F8;
 }
 
-/* ========== CORREÇÃO HEADER COMPACTO - SEM SOBREPOSIÇÃO ========== */
+/* ========== HEADER MINIMALISTA - APENAS LOGO ========== */
 
-/* RESET COMPLETO DO HEADER */
+/* Header limpo e simples */
 .header {
     background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    height: 60px; /* ALTURA FIXA PEQUENA */
+    height: 80px; /* Altura adequada para logo legível */
     padding: 0;
     margin: 0;
 }
 
-/* NAVEGAÇÃO COMPACTA */
+/* Navegação centralizada */
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Logo centralizada */
     align-items: center;
-    padding: 8px 20px; /* PADDING REDUZIDO */
+    padding: 15px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 60px; /* ALTURA FIXA */
+    height: 80px;
     box-sizing: border-box;
 }
 
-/* LOGO PEQUENA E COMPACTA */
+/* Logo com tamanho adequado e legível */
 .logo-img {
-    height: 40px; /* LOGO PEQUENA */
+    height: 50px; /* Tamanho legível */
     width: auto;
-    max-width: 150px;
+    max-width: 250px;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* CONTATOS COMPACTOS */
+/* Hover effect sutil na logo */
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Remover informações de contato do header */
 .contact-info {
+    display: none; /* Esconder completamente */
+}
+
+/* ========== CORREÇÃO DA IMAGEM DE FUNDO DUPLICADA ========== */
+
+/* Hero com imagem de fundo única */
+.hero {
+    margin-top: 80px; /* Ajuste para header de 80px */
+    position: relative;
+    min-height: 600px;
     display: flex;
-    gap: 15px;
     align-items: center;
-    font-size: 13px; /* TEXTO MENOR */
+    /* REMOVER: background-image daqui se estiver duplicado */
+    background: none; /* Garantir que não há background aqui */
 }
 
-.contact-item {
+/* Imagem de fundo APENAS no hero-bg */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* ALTERE AQUI: Caminho da imagem de fundo */
+    background-image: url('images/edificio-moderno-1.png');
+}
+
+/* Overlay escuro sobre a imagem */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 44, 44, 0.7);
     display: flex;
     align-items: center;
-    gap: 5px;
-    color: var(--genes-dark);
-    white-space: nowrap;
 }
 
-.contact-item a {
-    color: var(--genes-dark);
-    text-decoration: none;
-    font-weight: 500;
+/* Conteúdo do hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.contact-item a:hover {
-    color: var(--genes-orange);
+/* ========== RESPONSIVIDADE MOBILE ========== */
+@media (max-width: 768px) {
+    .header {
+        height: 70px; /* Menor no mobile */
+    }
+    
+    .nav {
+        padding: 10px 15px;
+        height: 70px;
+    }
+    
+    .logo-img {
+        height: 40px; /* Logo menor no mobile */
+    }
+    
+    .hero {
+        margin-top: 70px; /* Ajuste para mobile */
+    }
 }
 
-/* ÍCONES PEQUENOS */
+@media (max-width: 480px) {
+    .header {
+        height: 60px; /* Ainda menor em telas pequenas */
+    }
+    
+    .nav {
+        padding: 8px 10px;
+        height: 60px;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .hero {
+        margin-top: 60px;
+    }
+}
+
+/* ========== MELHORIAS VISUAIS ========== */
+
+/* Header com fundo semi-transparente (opcional) */
+.header.transparent {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Header com sombra mais sutil */
+.header.subtle {
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+}
+
+/* Logo com efeito de fade-in */
+.logo-img {
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== CORREÇÕES ESPECÍFICAS ========== */
+
+/* Garantir que não há imagem duplicada */
+.hero,
+.hero::before,
+.hero::after {
+    background-image: none !important;
+}
+
+/* Apenas o hero-bg deve ter a imagem */
+.hero-bg {
+    background-image: url('images/edificio-moderno-1.png') !important;
+}
+
+/* Remover qualquer background do container */
+.container {
+    background: none !important;
+}
+
+/* Garantir z-index correto */
+.header {
+    z-index: 9999;
+}
+
+.hero-bg {
+    z-index: 1;
+}
+
+.hero-overlay {
+    z-index: 2;
+}
+
+.hero-content {
+    z-index: 3;
+}
+
+/* ========== VERSÕES ALTERNATIVAS ========== */
+
+/* Versão com logo à esquerda */
+.header.logo-left .nav {
+    justify-content: flex-start;
+}
+
+/* Versão com logo à direita */
+.header.logo-right .nav {
+    justify-content: flex-end;
+}
+
+/* Versão extra compacta */
+.header.extra-compact {
+    height: 60px;
+}
+
+.header.extra-compact .nav {
+    height: 60px;
+    padding: 10px 20px;
+}
+
+.header.extra-compact .logo-img {
+    height: 40px;
+}
+
+.hero.with-extra-compact {
+    margin-top: 60px;
+}
+
+/* ========== LIMPEZA GERAL ========== */
+
+/* Remover estilos antigos que podem estar causando problemas */
+.contact-item,
+.contact-item a,
 .contact-item::before {
-    font-size: 12px;
+    display: none !important;
 }
 
-.contact-item.phone::before {
-    content: "📞";
+/* Garantir que o nav não tenha elementos extras */
+.nav > *:not(.logo-container):not(.logo-img) {
+    display: none;
 }
 
-.contact-item.email::before {
-    content: "✉️";
+/* Centralizar logo se não estiver em container */
+.nav .logo-img {
+    margin: 0 auto;
 }
+
+/* ========== ACESSIBILIDADE ========== */
+
+/* Focus visível na logo */
+.logo-img:focus {
+    outline: 2px solid var(--genes-orange);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Alt text para screen readers */
+.logo-img[alt=""] {
+    alt: "Genes Centro de Negócios - Página Inicial";
+}
+
+/* ========== PERFORMANCE ========== */
+
+/* Otimizar carregamento da imagem de fundo */
+.hero-bg {
+    background-attachment: scroll; /* Melhor performance que fixed */
+    will-change: transform; /* Otimizar animações */
+}
+
+/* Preload da logo se necessário */
+.logo-img {
+    loading: eager; /* Carregar logo imediatamente */
+}
+
+
 
 /* ========== AJUSTE DO HERO - SEM SOBREPOSIÇÃO ========== */
 .hero {
