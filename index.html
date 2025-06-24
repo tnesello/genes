@@ -8,30 +8,129 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- ========== HEADER COMPACTO - SEM SOBREPOSIÇÃO ========== -->
+
+<!-- ========== HEADER MINIMALISTA - APENAS LOGO ========== -->
 <header class="header">
     <nav class="nav">
-        <!-- Logo compacta -->
-        <div class="logo-container">
-            <!-- ALTERE AQUI: Caminho da logo -->
-            <img src="images/logo.png" alt="Genes Centro de Negócios" class="logo-img">
-        </div>
-        
-        <!-- Contatos compactos -->
-        <div class="contact-info">
-            <!-- ALTERE AQUI: Telefone -->
-            <div class="contact-item phone">
-                <a href="tel:+5551981184829">(51) 98118-4829</a>
-            </div>
-            
-            <!-- ALTERE AQUI: E-mail (escondido no mobile) -->
-            <div class="contact-item email desktop-only">
-                <a href="mailto:contato@genespart.com.br">contato@genespart.com.br</a>
-            </div>
-        </div>
+        <!-- ALTERE AQUI: Caminho da logo -->
+        <img src="images/logo.png" alt="Genes Centro de Negócios" class="logo-img">
     </nav>
 </header>
+
+<!-- ========== HERO COM IMAGEM DE FUNDO CORRIGIDA ========== -->
+<section class="hero" id="inicio">
+    <!-- ALTERE AQUI: Imagem de fundo (APENAS aqui, não duplicar) -->
+    <div class="hero-bg"></div>
+    
+    <div class="hero-overlay">
+        <div class="container">
+            <div class="hero-content">
+                <!-- ALTERE AQUI: Título principal -->
+                <h1 class="hero-title">Genes Centro de Negócios</h1>
+                
+                <!-- ALTERE AQUI: Subtítulo -->
+                <p class="hero-subtitle">Para empresas que estão de olho no futuro e agindo no presente</p>
+                
+                <!-- ALTERE AQUI: Descrição -->
+                <p class="hero-description">
+                    Salas comerciais modernas e equipadas no centro de Lajeado. 
+                    O ambiente ideal para o crescimento do seu negócio.
+                </p>
+                
+                <!-- Estatísticas -->
+                <div class="hero-stats">
+                    <!-- ALTERE AQUI: Número de salas -->
+                    <div class="stat">
+                        <span class="stat-number">36</span>
+                        <span class="stat-label">Salas Disponíveis</span>
+                    </div>
+                    
+                    <!-- ALTERE AQUI: Metragem -->
+                    <div class="stat">
+                        <span class="stat-number">17,1m²</span>
+                        <span class="stat-label">Área Média</span>
+                    </div>
+                    
+                    <!-- ALTERE AQUI: Localização -->
+                    <div class="stat">
+                        <span class="stat-number">Centro</span>
+                        <span class="stat-label">Lajeado/RS</span>
+                    </div>
+                </div>
+                
+                <!-- ALTERE AQUI: Link do WhatsApp -->
+                <a href="https://wa.me/5551981184829?text=Olá! Tenho interesse nas salas comerciais do Genes Centro de Negócios." 
+                   class="cta-button" 
+                   target="_blank" 
+                   rel="noopener">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== VERSÕES ALTERNATIVAS DO HEADER ========== -->
+
+<!-- VERSÃO 1: Logo à esquerda -->
+<!--
+<header class="header logo-left">
+    <nav class="nav">
+        <img src="images/logo.png" alt="Genes Centro de Negócios" class="logo-img">
+    </nav>
+</header>
+-->
+
+<!-- VERSÃO 2: Header extra compacto -->
+<!--
+<header class="header extra-compact">
+    <nav class="nav">
+        <img src="images/logo.png" alt="Genes Centro de Negócios" class="logo-img">
+    </nav>
+</header>
+<section class="hero with-extra-compact" id="inicio">
+    <!-- resto do conteúdo igual -->
+</section>
+-->
+
+<!-- VERSÃO 3: Header transparente -->
+<!--
+<header class="header transparent">
+    <nav class="nav">
+        <img src="images/logo.png" alt="Genes Centro de Negócios" class="logo-img">
+    </nav>
+</header>
+-->
+
+<!-- ========== CSS INLINE PARA IMAGEM DE FUNDO (ALTERNATIVA) ========== -->
+<!-- Se preferir definir a imagem diretamente no HTML: -->
+<!--
+<section class="hero" id="inicio">
+    <div class="hero-bg" style="background-image: url('images/edificio-moderno-1.png');"></div>
+    <div class="hero-overlay">
+        <!-- conteúdo igual -->
+    </div>
+</section>
+-->
+
+<style>
+/* CSS adicional para garantir que não há duplicação */
+.hero {
+    background: none !important;
+    background-image: none !important;
+}
+
+.hero-bg {
+    background-image: url('images/edificio-moderno-1.png') !important;
+}
+
+/* Remover qualquer estilo antigo de contato no header */
+.contact-info,
+.contact-item {
+    display: none !important;
+}
+</style>
+
 
 <!-- ========== VERSÃO ULTRA COMPACTA (SE AINDA ESTIVER GRANDE) ========== -->
 <!-- Substitua o header acima por este se ainda estiver muito grande -->
