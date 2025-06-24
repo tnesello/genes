@@ -27,28 +27,278 @@ body {
     --genes-light: #F8F8F8;
 }
 
-/* ========== HEADER ========== */
+/* ========== CORREÇÃO HEADER COMPACTO - SEM SOBREPOSIÇÃO ========== */
+
+/* RESET COMPLETO DO HEADER */
 .header {
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    height: 60px; /* ALTURA FIXA PEQUENA */
+    padding: 0;
+    margin: 0;
 }
 
+/* NAVEGAÇÃO COMPACTA */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 8px 20px; /* PADDING REDUZIDO */
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 60px; /* ALTURA FIXA */
+    box-sizing: border-box;
 }
 
+/* LOGO PEQUENA E COMPACTA */
 .logo-img {
-    height: 80px;
+    height: 40px; /* LOGO PEQUENA */
     width: auto;
+    max-width: 150px;
+    object-fit: contain;
 }
+
+/* CONTATOS COMPACTOS */
+.contact-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 13px; /* TEXTO MENOR */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--genes-dark);
+    white-space: nowrap;
+}
+
+.contact-item a {
+    color: var(--genes-dark);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    color: var(--genes-orange);
+}
+
+/* ÍCONES PEQUENOS */
+.contact-item::before {
+    font-size: 12px;
+}
+
+.contact-item.phone::before {
+    content: "📞";
+}
+
+.contact-item.email::before {
+    content: "✉️";
+}
+
+/* ========== AJUSTE DO HERO - SEM SOBREPOSIÇÃO ========== */
+.hero {
+    margin-top: 60px; /* EXATAMENTE A ALTURA DO HEADER */
+    position: relative;
+    min-height: 500px; /* REDUZIDO TAMBÉM */
+}
+
+/* ========== RESPONSIVIDADE MOBILE ========== */
+@media (max-width: 768px) {
+    .header {
+        height: 50px; /* AINDA MENOR NO MOBILE */
+    }
+    
+    .nav {
+        padding: 5px 15px;
+        height: 50px;
+    }
+    
+    .logo-img {
+        height: 30px; /* LOGO MUITO PEQUENA NO MOBILE */
+    }
+    
+    .contact-info {
+        gap: 10px;
+        font-size: 11px;
+    }
+    
+    /* ESCONDER EMAIL NO MOBILE PARA ECONOMIZAR ESPAÇO */
+    .contact-item.email {
+        display: none;
+    }
+    
+    .hero {
+        margin-top: 50px; /* AJUSTE PARA MOBILE */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 45px;
+    }
+    
+    .nav {
+        padding: 5px 10px;
+        height: 45px;
+    }
+    
+    .logo-img {
+        height: 25px; /* LOGO MÍNIMA */
+    }
+    
+    .contact-info {
+        font-size: 10px;
+    }
+    
+    .hero {
+        margin-top: 45px;
+    }
+}
+
+/* ========== VERSÃO AINDA MAIS COMPACTA (SE NECESSÁRIO) ========== */
+.header.ultra-compact {
+    height: 45px;
+}
+
+.header.ultra-compact .nav {
+    padding: 5px 20px;
+    height: 45px;
+}
+
+.header.ultra-compact .logo-img {
+    height: 30px;
+}
+
+.header.ultra-compact .contact-info {
+    font-size: 11px;
+    gap: 10px;
+}
+
+/* Ajuste do hero para versão ultra-compacta */
+.hero.with-ultra-compact-header {
+    margin-top: 45px;
+}
+
+/* ========== MELHORIAS VISUAIS ========== */
+/* Remover transições que podem causar problemas */
+.logo-img,
+.contact-item {
+    transition: none;
+}
+
+/* Garantir que nada vaze do header */
+.nav {
+    overflow: hidden;
+}
+
+/* Garantir alinhamento perfeito */
+.logo-img {
+    vertical-align: middle;
+}
+
+.contact-info {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* ========== CORREÇÃO PARA PROBLEMAS ESPECÍFICOS ========== */
+
+/* Se ainda estiver sobrepondo, force a margem */
+.hero.force-margin {
+    margin-top: 80px !important;
+}
+
+@media (max-width: 768px) {
+    .hero.force-margin {
+        margin-top: 70px !important;
+    }
+}
+
+/* Se a logo estiver cortada */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Se os contatos estiverem saindo da tela */
+.contact-info {
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.contact-item {
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+/* ========== VERSÃO MINIMALISTA ========== */
+.header.minimal {
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.header.minimal .nav {
+    padding: 5px 20px;
+    height: 40px;
+}
+
+.header.minimal .logo-img {
+    height: 25px;
+}
+
+.header.minimal .contact-info {
+    font-size: 10px;
+    gap: 8px;
+}
+
+.hero.with-minimal-header {
+    margin-top: 40px;
+}
+
+/* ========== CLASSES UTILITÁRIAS ========== */
+
+/* Para esconder elementos se necessário */
+.hide-on-small {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .hide-on-small {
+        display: none;
+    }
+}
+
+/* Para mostrar apenas no desktop */
+.desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Para mostrar apenas no mobile */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
 
 
 /* ========== SEÇÃO PRINCIPAL (HERO) ========== */
