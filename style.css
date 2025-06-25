@@ -2178,7 +2178,13 @@ html {
 }
 
 .logo-img {
-    height: 55px !important;
+    height: 65px !important;
     margin-left: 0 !important;
     margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px !important;
+    }
 }
