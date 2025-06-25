@@ -2172,3 +2172,13 @@ html {
     }
 }
 
+/* CORREÇÃO LOGO - À ESQUERDA E MAIOR */
+.nav {
+    justify-content: flex-start !important;
+}
+
+.logo-img {
+    height: 55px !important;
+    margin-left: 0 !important;
+    margin-right: auto;
+}
