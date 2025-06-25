@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Schibsted+Grotesk', sans-serif;
+    font-family: 'Schibsted+Grotesk', regular 400;
     line-height: 1.6;
     color: #333;
     background-color: #fff;
