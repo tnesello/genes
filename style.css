@@ -6,7 +6,8 @@
 }
 
 body {
-   
+    
+.schibsted-grotesk-<uniquifier> {
   font-family: "Schibsted Grotesk", sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
