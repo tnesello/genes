@@ -2195,9 +2195,8 @@ html {
     }
 }
 
-/* Diminuir tamanho dos preços */
+/* Opção 2: Se estão em parágrafos dentro dos cards das salas */
 .sala-card p,
-.preco,
-.valor {
-    font-size: 1.2rem !important;
+.card-sala p {
+    font-size: 1rem !important;
 }
