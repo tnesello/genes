@@ -2194,3 +2194,10 @@ html {
         height: 45px !important;
     }
 }
+
+/* Diminuir tamanho dos preços */
+.sala-card p,
+.preco,
+.valor {
+    font-size: 1.1rem !important;
+}
