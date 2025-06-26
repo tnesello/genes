@@ -779,7 +779,7 @@ body {
 }
 
 .sala-price small {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #666;
 }
 
@@ -2193,10 +2193,4 @@ html {
     .logo-img {
         height: 45px !important;
     }
-}
-
-/* Opção 2: Se estão em parágrafos dentro dos cards das salas */
-.sala-card p,
-.card-sala p {
-    font-size: 1rem !important;
 }
