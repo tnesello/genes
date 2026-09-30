@@ -1763,3 +1763,22 @@ html {
     overflow: hidden; clip: rect(0, 0, 0, 0);
     white-space: nowrap; border: 0;
 }
+
+/* Cards de salas: dados em 3 colunas e botões alinhados na base */
+.sala-card {
+    display: flex;
+    flex-direction: column;
+}
+.sala-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.sala-details {
+    grid-template-columns: repeat(3, 1fr);
+}
+.sala-footer {
+    margin-top: auto;
+    gap: 12px;
+    flex-wrap: wrap;
+}
