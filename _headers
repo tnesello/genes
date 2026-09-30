@@ -1,0 +1,5 @@
+# Cache no navegador (Netlify)
+/images/*
+  Cache-Control: public, max-age=604800
+/style.css
+  Cache-Control: public, max-age=86400

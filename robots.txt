@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.genescentrodenegocios.com.br/sitemap.xml
