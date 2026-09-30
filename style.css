@@ -90,7 +90,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     /* ALTERE AQUI: Caminho da imagem de fundo */
-    background-image: url('images/edificio-moderno-1.png');
+    background-image: url('images/edificio-moderno-1.jpg');
 }
 
 /* Overlay escuro sobre a imagem */
@@ -195,7 +195,7 @@ body {
 
 /* Apenas o hero-bg deve ter a imagem */
 .hero-bg {
-    background-image: url('images/edificio-moderno-1.png') !important;
+    background-image: url('images/edificio-moderno-1.jpg') !important;
 }
 
 /* Remover qualquer background do container */
@@ -2193,4 +2193,13 @@ html {
     .logo-img {
         height: 45px !important;
     }
+}
+
+/* Texto acessível apenas para leitores de tela e buscadores */
+.sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
 }
