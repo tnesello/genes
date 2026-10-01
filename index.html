@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261001">
+    <link rel="stylesheet" href="style.css?v=20261001b">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -169,9 +169,8 @@
 
                 <!-- ========== SALA 210 ========== -->
                 <article class="sala-card">
-                    <div class="sala-media sala-media-vazia" aria-label="Fotos da Sala 210 em breve">
-                        <img src="images/simbolo-branco.png" alt="" aria-hidden="true">
-                        <span>Fotos em breve</span>
+                    <div class="sala-media">
+                        <img src="images/sala-210-1.jpg" alt="Sala 210 vista do corredor, com porta de vidro" loading="lazy" width="900" height="1200">
                         <span class="sala-badge">Disponível</span>
                     </div>
                     <div class="sala-body">
@@ -197,9 +196,18 @@
 
                 <!-- ========== SALA 211 ========== -->
                 <article class="sala-card">
-                    <div class="sala-media sala-media-vazia" aria-label="Fotos da Sala 211 em breve">
-                        <img src="images/simbolo-branco.png" alt="" aria-hidden="true">
-                        <span>Fotos em breve</span>
+                    <!-- Carrossel: para adicionar fotos, inclua mais <img> dentro de carousel-track -->
+                    <div class="sala-media carousel" data-carousel>
+                        <div class="carousel-track" tabindex="0" aria-label="Fotos da Sala 211">
+                            <img src="images/sala-211-1.jpg" alt="Sala 211 mobiliada, com mesas e cadeiras de escritório" loading="lazy" width="900" height="1200">
+                            <img src="images/sala-211-2.jpg" alt="Sala 211, bancadas de trabalho e iluminação de LED" loading="lazy" width="900" height="1200">
+                            <img src="images/sala-211-3.jpg" alt="Sala 211, entrada e bancada" loading="lazy" width="900" height="1200">
+                            <img src="images/sala-211-4.jpg" alt="Sala 211 vista do corredor, com porta de vidro" loading="lazy" width="900" height="1200">
+                            <img src="images/sala-211-5.jpg" alt="Lavabo da Sala 211" loading="lazy" width="900" height="1200">
+                        </div>
+                        <button type="button" class="carousel-btn carousel-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+                        <button type="button" class="carousel-btn carousel-next" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+                        <div class="carousel-dots" aria-hidden="true"></div>
                         <span class="sala-badge">Disponível</span>
                     </div>
                     <div class="sala-body">
@@ -346,6 +354,32 @@
         function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 40); }
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+
+        // Carrossel de fotos das salas
+        document.querySelectorAll('[data-carousel]').forEach(function (c) {
+            var track = c.querySelector('.carousel-track');
+            var slides = track.querySelectorAll('img');
+            var dots = c.querySelector('.carousel-dots');
+            if (slides.length < 2) { c.classList.add('is-single'); return; }
+            slides.forEach(function (_, i) { dots.appendChild(document.createElement('span')); });
+            function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+            function update() {
+                var i = current();
+                dots.querySelectorAll('span').forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+            }
+            function go(d) {
+                var i = (current() + d + slides.length) % slides.length;
+                track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+            }
+            c.querySelector('.carousel-prev').addEventListener('click', function () { go(-1); });
+            c.querySelector('.carousel-next').addEventListener('click', function () { go(1); });
+            track.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+                if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+            });
+            track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+            update();
+        });
 
         // Formulário de contato: monta a mensagem e abre o WhatsApp do Genes
         document.getElementById('form-whatsapp').addEventListener('submit', function (e) {
